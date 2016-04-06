@@ -23,3 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
     sendMessage(ga);
   }
 });
+
+var s = document.createElement('script');
+s.type = 'text/javascript';
+
+s.src = chrome.extension.getURL('inject/monitorError.js');
+(document.head || document.documentElement).appendChild(s);
