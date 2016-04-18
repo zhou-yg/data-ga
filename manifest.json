@@ -30,6 +30,8 @@
       "matches": [
         "*://meidian-1.play.admin.jaeapp.com/*",
         "*://meidian.play.admin.jaeapp.com/*",
+        "*://mdback1.ews.m.jaeapp.com/*",
+        "*://mdh51.ews.m.jaeapp.com/*",
         "*://localhost/*",
         "*://127.0.0.1/*"
       ],

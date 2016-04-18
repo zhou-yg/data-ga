@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     console.log(ga);
 
-    sendMessage(ga);
+    sendMessage({
+      title:document.title,
+      ga:ga
+    });
   }
 });
 

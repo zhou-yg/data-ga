@@ -4,7 +4,7 @@ document.querySelector('.new-window').onclick = function () {
   chrome.windows.create({
     top: 110,
     left: 0,
-    width: 200,
+    width: 230,
     height: 300,
     type: 'popup',
     url: 'logWindow/newWindow.html'

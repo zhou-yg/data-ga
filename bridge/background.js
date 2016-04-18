@@ -9,7 +9,9 @@ chrome.runtime.onConnect.addListener(function (port) {
   port.onMessage.addListener(function (m) {
     console.log('onMessage:',m);
     portArrCache.forEach(function (p) {
-      p.postMessage(m);
+      p.postMessage({
+        m:m
+      });
     });
   });
 
@@ -23,7 +25,11 @@ chrome.runtime.onConnect.addListener(function (port) {
 
 chrome.webRequest.onCompleted.addListener(function (details) {
   var url = details.url;
+
+
+
   if(/\/use\.jpg/.test(url)){
+
     var urlObj = new URL(url);
     var searchObj = urlObj.search.substr(1).split('&').map(function (kv) {
       return kv.split('=').map(function (str) {
@@ -38,7 +44,11 @@ chrome.webRequest.onCompleted.addListener(function (details) {
     console.log('ajax:',searchObj.tag);
 
     portArrCache.forEach(function (p) {
-      p.postMessage(searchObj.tag);
+      p.postMessage({
+        req:{
+          ga:searchObj.tag,
+        }
+      });
     });
   }
 },{urls: ["<all_urls>"]});
